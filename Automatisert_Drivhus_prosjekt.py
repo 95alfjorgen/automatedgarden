@@ -1,30 +1,34 @@
 #!/bin/bash
 import datetime, time
-import RPi.GPIO as IO
-IO.setmode (IO.BCM)
-IO.setwanings (false)
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BCM)
+
+pinList = [2, 3, 4, 17]
+
+for i in pinList:
+    GPIO.setup(i, GPIO.OUT)
+    GPIO.output(i, GPIO.HIGH)
 
 
-#Kode for lyssetting av drivhuset. Mål; 8 timer uten lys. resten på.
 
-Def main():
-    light = 17
+    light = 3
 
-    IO.setup(light, IO.OUT)
+    IO.setup(light, GPIO.OUT)
 
-    while(true):
+    While(True):
         now = datetime.datetime.now()
-        idagkl08 = now.replace(Hour=8, minute=0, second=0, microsecond=0)
-        idagkl18 = now.reolace(hour=18, minute=0, second=0, microsecond=0)
+        idagkl08 = now.replace(hour=8, minute=0, second=0, microsecond=0)
+        idagkl18 = now.replace(hour=18, minute=0, second=0, microsecond=0)
             turnOn = now>idagkl08
             turnOff = now>idagkl18
 
 
-                    if (turnOn==Ture):
+                    if (turnOn==True):
                         IO.output(light, True)
                     if (turnOff==True):
                         IO.output(light, False)
 
 main()
 
-    #Kode for pumpe til vannsingssystemet 
+
