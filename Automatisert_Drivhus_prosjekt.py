@@ -18,17 +18,15 @@ for i in pinList:
 
     While(True):
         now = datetime.datetime.now()
-        idagkl08 = now.replace(hour=8, minute=0, second=0, microsecond=0)
-        idagkl18 = now.replace(hour=18, minute=0, second=0, microsecond=0)
-            turnOn = now>idagkl08
-            turnOff = now>idagkl18
-
-
-                    if (turnOn==True):
-                        IO.output(light, True)
-                    if (turnOff==True):
-                        IO.output(light, False)
-
+        startTime = now.replace(hour=8, minute=0, second=0, microsecond=0)
+        stopTime = now.replace(hour=18, minute=0, second=0, microsecond=0)
+        onPeriod = now > startTime and now < stopTime
+        
+        if onPeriod:
+            IO.output(light, True)
+        else:
+            IO.output(light, False)
+        
+        # Tar pause på 60 sekund. Koden kjører derfor en gang i minuttet. (da krasjer det heller ikke)
+        time.sleep(60) 
 main()
-
-
