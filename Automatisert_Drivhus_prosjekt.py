@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/python
 import datetime, time
 import RPi.GPIO as GPIO
 import time
