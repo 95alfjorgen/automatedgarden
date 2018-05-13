@@ -12,7 +12,7 @@ for i in pinList:
 
 
 
-    light = 3
+    light = 2
 
     IO.setup(light, GPIO.OUT)
 
