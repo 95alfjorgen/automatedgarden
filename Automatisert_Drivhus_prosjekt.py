@@ -16,7 +16,7 @@ for i in pinList:
 
     IO.setup(light, GPIO.OUT)
 
-    While(True):
+    while(True):
         now = datetime.datetime.now()
         startTime = now.replace(hour=8, minute=0, second=0, microsecond=0)
         stopTime = now.replace(hour=18, minute=0, second=0, microsecond=0)
