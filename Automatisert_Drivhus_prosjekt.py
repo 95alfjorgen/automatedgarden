@@ -27,6 +27,6 @@ for i in pinList:
         else:
             IO.output(light, False)
         
-        # Tar pause på 60 sekund. Koden kjører derfor en gang i minuttet. (da krasjer det heller ikke)
+        #Tar pause på 60 sekund. Koden kjorer derfor en gang i minuttet. (da krasjer det heller ikke)
         time.sleep(60) 
 main()
