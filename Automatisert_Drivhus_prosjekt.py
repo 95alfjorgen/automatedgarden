@@ -24,9 +24,9 @@ for i in pinList:
         onPeriod = now > startTime and now < stopTime
         
         if onPeriod:
-            IO.output(light, True)
+            GPIO.output(light, True)
         else:
-            IO.output(light, False)
+            GPIO.output(light, False)
         
         #Tar pause på 60 sekund. Koden kjorer derfor en gang i minuttet. (da krasjer det heller ikke)
         time.sleep(60) 
